@@ -1,0 +1,23 @@
+%html
+  %head
+    %title Try RedCloth
+    %script{ 'type' => "text/" + "javascript", :src=>"http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js"}
+  %body
+    %h1
+      Try 
+      %a{href="http://redcloth.org/"} RedCloth
+    %form{:method=>"post"}
+      %textarea#text_field{:name=>"text", :rows=>"8", :cols=>"80"}
+      %input#submit{:type=>"submit"}
+    %div#result
+    :javascript
+      new Form.Element.Observer(
+        'text_field',
+        0.2,  // 200 milliseconds
+        function(el, value){
+          new Ajax.Updater('result', '/', {
+            parameters: { text: value }
+          })
+        }
+      );
+      $('submit').hide();
