@@ -7,8 +7,9 @@
       Try 
       %a{href="http://redcloth.org/"} RedCloth
     %form{:method=>"post"}
-      %textarea#text_field{:name=>"text", :rows=>"8", :cols=>"80"}
+      %textarea#text_field{:name=>"text", :rows=>"8", :cols=>"60"}
       %input#submit{:type=>"submit"}
+      %input#reset{:type=>"reset"}
     %div#result
     :javascript
       new Form.Element.Observer(
