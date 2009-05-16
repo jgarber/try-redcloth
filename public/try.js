@@ -23,8 +23,3 @@ var TryRedClothObserver = Class.create({
     });
   }
 });
-
-document.observe("dom:loaded", function() {
-  new TryRedClothObserver('text_field', 'result', 'html-result');
-  $('submit').hide();
-});
