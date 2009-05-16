@@ -14,7 +14,9 @@ var TryRedClothObserver = Class.create({
   },
   parseRedcloth: function(event) {
     var rcObserver = this;
-    new Ajax.Request('/', {
+    var request_url = rcObserver.observable.form.action;
+    if (request_url.blank()) request_url = '/';
+    new Ajax.Request(request_url, {
       parameters: { text: rcObserver.observable.value },
       onSuccess: function(response) {
         rcObserver.resultElement.update(response.responseText);
